@@ -1,0 +1,109 @@
+import React, { useRef } from "react";
+import "./Signup.css";
+import { Form, Button } from 'react-bootstrap';
+import Header from "./Header";
+import Footer from "./Footer";
+// import React from "react";
+import { useForm } from "react-hook-form";
+
+// export default function App() {
+ 
+//   return (
+//     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+//     <form >
+//     {/* register your input into the hook by invoking the "register" function */}
+//       <input name="example" defaultValue="test" ref={register} />
+      
+//       {/* include validation with required or other standard HTML validation rules */}
+//       <input name="exampleRequired" ref={register({ required: true })} />
+//       {/* errors will return when field validation fails  */}
+//       {errors.exampleRequired && <span>This field is required</span>}
+      
+//       <input type="submit" />
+//     </form>
+//   );
+// }
+
+function Signup(){
+    const { register, handleSubmit, watch, errors } = useForm();
+    // const onSubmit = data => console.log(data);
+    const password = useRef({});
+    password.current = watch("password", "");
+    const onSubmit = async data => {
+        alert(JSON.stringify(data));
+     };
+    console.log(watch("example")); // watch input value by passing the name of it
+  
+    return(
+        <div className=" ">
+            {/* <Header/> */}
+            <section className="mt-5 mb-5  text-center">
+            <Form inline className="bg-light p-5 mx-auto rounded shadow-lg" onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group controlId="formBasic">
+                    <Form.Control type="text" placeholder="Enter FirstName"  
+                    className="mx-sm-3 mb-2" name="firstName" ref={register({ required: true, minLength: 5 })} />
+                    {errors.firstName && "Required(Must be 5-20 characters)"}
+                </Form.Group>
+
+                <Form.Group controlId="formBasicName">
+                    <Form.Control type="text" placeholder="Enter LastName"  
+                    className="mx-sm-3 mb-2" name="lastName" ref={register({ required: true, maxLength: 20 })} />
+                    {errors.lastName && "Required(Maximum of 20 characters)"}
+                </Form.Group>
+                <Form.Group controlId="formBasicName">
+                    <Form.Control type="number" placeholder="Enter Age" 
+                     className="mx-sm-3 mb-2"  name="age" ref={register({ required:true, min: 18, max: 99 })}/>
+                    {errors.age && "Must be from 18-99 "}
+                </Form.Group>
+
+                
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Control type="temail" name="temail" placeholder="Enter email" 
+                     className="mx-sm-3 mb-2"  ref={register({required:true, pattern: /\S+@\S+\.\S+/ })}/>
+                    {errors.temail && "Must be from a valid email"}
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Control
+                    name="password"
+                            type="password"
+                            ref={register({
+                              required: "You must specify a password",
+                              minLength: {
+                                value: 8,
+                                message: "Password must have at least 8 characters"
+                              }
+                            })}
+                    className="mx-sm-3 mb-2"
+                   
+                    />
+                     {/* {errors.pwd && " Must be minimum of 8 characters"} */}
+                     {errors.password && errors.password.message}
+                     
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                    className="mx-sm-3 mb-2"
+                    placeholder="Confirm Password"
+                    name="password_repeat"
+                    type="password"
+                    ref={register({
+                      validate: value =>
+                        value === password.current || "The passwords do not match"
+                    })}
+                    />
+                      {errors.password_repeat && errors.password_repeat.message}
+                </Form.Group>  
+                             
+                <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="I Agree to Terms"  className="mx-sm-3 mb-2"/>
+                </Form.Group>
+
+                <Button variant="outline-primary" type="submit" className="mx-sm-3 mb-2 ">Register</Button>{' '}
+            </Form>
+            </section>
+            {/* <Footer/> */}
+        </div>
+    );
+}
+export default Signup;
