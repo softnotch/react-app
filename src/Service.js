@@ -1,11 +1,6 @@
 import React from 'react';
-import { Form, Button,FormControl,Nav, Navbar  } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './App.css';
-import Header from './Header';
-// import Nav from './Nav';
-import stella from './img/stella.jpg';
-import fela from './img/fela.jpg';
-import Footer from './Footer';
 
 
 function Service() {

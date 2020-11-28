@@ -1,28 +1,8 @@
 import React, { useRef } from "react";
 import "./Signup.css";
 import { Form, Button } from 'react-bootstrap';
-import Header from "./Header";
-import Footer from "./Footer";
-// import React from "react";
 import { useForm } from "react-hook-form";
 
-// export default function App() {
- 
-//   return (
-//     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-//     <form >
-//     {/* register your input into the hook by invoking the "register" function */}
-//       <input name="example" defaultValue="test" ref={register} />
-      
-//       {/* include validation with required or other standard HTML validation rules */}
-//       <input name="exampleRequired" ref={register({ required: true })} />
-//       {/* errors will return when field validation fails  */}
-//       {errors.exampleRequired && <span>This field is required</span>}
-      
-//       <input type="submit" />
-//     </form>
-//   );
-// }
 
 function Signup(){
     const { register, handleSubmit, watch, errors } = useForm();
@@ -36,7 +16,6 @@ function Signup(){
   
     return(
         <div className=" ">
-            {/* <Header/> */}
             <section className="mt-5 mb-5  text-center">
             <Form inline className="bg-light p-5 mx-auto rounded shadow-lg" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group controlId="formBasic">
@@ -102,7 +81,6 @@ function Signup(){
                 <Button variant="outline-primary" type="submit" className="mx-sm-3 mb-2 ">Register</Button>{' '}
             </Form>
             </section>
-            {/* <Footer/> */}
         </div>
     );
 }

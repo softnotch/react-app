@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form, Button,FormControl,Nav, Navbar, Carousel  } from 'react-bootstrap';
-// import Header from './Header';
+import {  Carousel  } from 'react-bootstrap';
 import home from './img/house.png';
 import img1 from './img/1.png';
 import img2 from './img/2.png';

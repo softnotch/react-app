@@ -24,12 +24,6 @@ function App() {
                 <Route path="/signup" component={Signup}/>
                 <Route path="/gallery" component={Gallery}/>
               </Switch>
-              {/* <About/> 
-              <Login/>
-              <Service/>
-              <Signup/>
-              <Gallery/>
-              <Home/> */}
                < Footer/> 
             </div>
         </Router>

@@ -1,8 +1,7 @@
 import React from "react";
 import "./Login.css";
 import { Form, Button } from 'react-bootstrap';
-import Header from "./Header";
-import Footer from "./Footer";
+
 
 function Login(){
     return(
