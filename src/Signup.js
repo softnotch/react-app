@@ -39,12 +39,13 @@ function Signup(){
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control type="temail" name="temail" placeholder="Enter email" 
                      className="mx-sm-3 mb-2"  ref={register({required:true, pattern: /\S+@\S+\.\S+/ })}/>
-                    {errors.temail && "Must be from a valid email"}
+                    {errors.temail && "Must be from a valid email"} 
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Control
                     name="password"
+                    placeholder="Confirm Password"
                             type="password"
                             ref={register({
                               required: "You must specify a password",
